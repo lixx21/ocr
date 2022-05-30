@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "redmine-350506",
+  "private_key_id": "7b255e2f2e7e1f397a04c1e2823828abb3336116",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDc6ZpDrZxaDJ7C\n/Jk+/WFe3LveIzcutcI12GQMiVR+XqhExxC5+8OpHU6kgp1ASK2jds7WUrizGuD+\nlu/SO8oxRw2rO6w9m1iI/3kVmG6toDvMNKlxhu1IYSpBESfcsyQmfIjaDBKcZ9Hd\n/v3z7uYsUXp/+y79SuT/eLXQ/qcBizxZimCVL2ztfOxaUJfS5VpJaBxdAF5Aj5W/\nY0Dwg9JmlSrt0d4nmfCL8MjzDpbvpZ0fUAT2ItPGlAj71L28tc0BylPuVm8eBMfE\nJKRHfjEEev9cu2yyZqjQMu0gHNIsE/JDnys3x3aeUeI5UUfHC6IEP3QejFP2RwjE\nevAR1z8zAgMBAAECggEAJIEPhj5ydyjdtS/DbPa2t9O20Zq1HClZuccTpUSuKyGe\nIZtZZro1F0VqAOI6dOxtkPTpcd4CekonQrqTT4SkwSbSGekG6bk5VI4OpqRlKZiw\nOOq80y8uF4dC0bSxhxUtFJUAkjNrgd/f/JSNx1jDPTCLkwlhNubA13xNYwcpdqYK\nT2Ovul9KbX2SKnt7Q00wbol/qIo5tYqiBEbQBWgHAchzb9rGjo5Fk6LPFZjpSkWN\nMwDLpZocZjwnP/Yy4P4NBX9rZ8WxgBC1Y5wlgzJ0ErprN9inOu8J+EMspqgAvbjT\n67N0aqbETfnIiOsq0yxgHdjqSWXJUgY6bAuhncXOxQKBgQDt77jZFinD5CBBTOMR\np+HdR6WM6GbuKZkJ+X1HfuqhyqWvhp3jEwNjSmp3lARhXA2yi8boJHDiBbctFcvy\nJD5J/r8rVYCick6BwGC41rVGDj4OEcRq0O4uWi9x0fNw71qp2uqWHOQX7O3iyS+P\nH/94Y/ml3F4ZjWjssdT+qt1BZQKBgQDtrwWpoTQv1QNeHh0TBuTn06dMwbmLtKnY\n8fQyt1gyNZE0N+5728yTbY4mJjkrzCRYY/9XFIdVtAmJjIanYDsjGE7yMuafxh+x\ne4UzwaGonUW5yy/DWmn0U07VXNN6Rw1sR9yczxK4WbYDdrXfskJxabBtRYYW9JXn\nurWZnt+AtwKBgALTF7SsCK7kpGViDkgFYC8KTLLRh3dIUyLFLXGN1ic5iqH8zR8G\n+MFS/tSQk0S8nQUDl8blt9lXDAei/JrRR1QFjCtthmtnQ/tSV1OaaOh9/sqX92b1\nN/6g33NQdL1gegkOKj7B9Qs7qs9IaCIg1R2OwkXvycYv4ZD9w3OKf7npAoGBAMb8\nl34LQtikujwKdAbg57UaYl8FdOR8bRH+hpYLHyBx7k3MYbF6M8xdlPtlVsnPD8Kc\nfUIXIrJilvV8G6N3Eitwh2+Ho8KxqQj6w2qwOjoi6SQB8svXHwt4z3AbVcVyRM+Z\nXh490otaN+KweNV9tNikRhtFcFw5imLF0pF5C98DAoGBAKX2WD3fcEdAkY0L9fKa\nRfp3qovBABH/5DYtWUKktcpR5lqoCi0V9IA5CDCo7FdHN1eYxrN+Hwvt9GrwIu55\nNEoR+KZLcoZejB3iAefAPxKE0oBGLaEaKYVfgaSznqLtZ/NN53RwY81V+4LspKAy\nB+r4HNU27inl4EIuwFVg1qWy\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-bmgf0@redmine-350506.iam.gserviceaccount.com",
+  "client_id": "109763240785166877187",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-bmgf0%40redmine-350506.iam.gserviceaccount.com"
+}
