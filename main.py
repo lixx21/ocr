@@ -14,9 +14,9 @@ app = Flask(__name__)
 
 # pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 
-cred = credentials.Certificate("/home/felixpratama242/ocr/redmineKey.json")
+cred = credentials.Certificate("/home/felixpratama242/ocr-api/redmineKey.json")
 
-model = tf.keras.models.load_model("/home/felixpratama242/ocr/ocr-model-5.h5")
+model = tf.keras.models.load_model("/home/felixpratama242/ocr-api/bounding_box_segmentation_5.h5")
 # model.summary()
 
 firebase = firebase_admin.initialize_app(cred,
@@ -34,7 +34,7 @@ def predict():
     imagefile = request.files['imagefile']
     uid = request.form.get('uid')
     # image_path = "C:\\Users\\ASUS\\PycharmProjects\\bangkit_capstone\\test.jpg"
-    image_path = "/home/felixpratama242/ocr/images/"+imagefile.filename
+    image_path = "/home/felixpratama242/ocr-api/images/"+imagefile.filename
     # image = imagefile.filename
     imagefile.save(image_path)
 
