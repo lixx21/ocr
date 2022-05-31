@@ -90,7 +90,7 @@ def predict():
 
         if new_jenis_kelamin == "PEREMPUAN":
             new_jenis_kelamin = "female"
-        elif jenis_kelamin == "LAKI-LAKI":
+        elif new_jenis_kelamin == "LAKI-LAKI":
             new_jenis_kelamin = "male"
         else:
             new_jenis_kelamin = jenis_kelamin
