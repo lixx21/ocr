@@ -76,9 +76,17 @@ def predict():
         jenis_kelamin = pytesseract.image_to_string(roi_img[1], lang='eng', config='--psm 7')
         verified = bool(True)
 
+        if jenis_kelamin == "PEREMPUAN":
+            new_jenis_kelamin = "female"
+        elif jenis_kelamin == "LAKI-LAKI":
+            new_jenis_kelamin = "male"
+        else:
+            new_jenis_kelamin = jenis_kelamin
+
+
         response_json = {
             "name": nama,
-            "gender": jenis_kelamin,
+            "gender": new_jenis_kelamin,
             "verified": verified
         }
 
@@ -88,7 +96,7 @@ def predict():
         }
 
         new_users_data = {
-            "gender": jenis_kelamin,
+            "gender": new_jenis_kelamin,
             "verified": verified
         }
 
