@@ -72,11 +72,23 @@ def predict():
             roi_number += 1
 
     if len(roi_img) > 1:
-        nama = pytesseract.image_to_string(roi_img[0], lang='eng', config='--psm 7')
+        name = pytesseract.image_to_string(roi_img[0], lang='eng', config='--psm 7')
         jenis_kelamin = pytesseract.image_to_string(roi_img[1], lang='eng', config='--psm 7')
         verified = bool(True)
 
-        if jenis_kelamin == "PEREMPUAN":
+        wrong_name = ["\n", "\f"]
+
+        for i in range (len(wrong_name)) :
+            if wrong_name[i] in name:
+            new_name = name.strip(wrong_name[i])
+        new_name = new_name.strip("\n")
+
+        for i in range (len(wrong_name)) :
+            if wrong_name[i] in jenis_kelamin:
+            new_jenis_kelamin = jenis_kelamin.strip(wrong_name[i])
+        new_jenis_kelamin = new_jenis_kelamin.strip("\n")
+
+        if new_jenis_kelamin == "PEREMPUAN":
             new_jenis_kelamin = "female"
         elif jenis_kelamin == "LAKI-LAKI":
             new_jenis_kelamin = "male"
@@ -85,13 +97,13 @@ def predict():
 
 
         response_json = {
-            "name": nama,
+            "name": new_name,
             "gender": new_jenis_kelamin,
             "verified": verified
         }
 
         new_users = {
-            "name": nama,
+            "name": new_name,
             "verified": verified
         }
 
