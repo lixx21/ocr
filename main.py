@@ -93,7 +93,7 @@ def predict():
         elif new_jenis_kelamin == "LAKI-LAKI":
             new_jenis_kelamin = "male"
         else:
-            new_jenis_kelamin = jenis_kelamin
+            new_jenis_kelamin = new_jenis_kelamin
 
 
         response_json = {
