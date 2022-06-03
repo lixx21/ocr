@@ -41,6 +41,11 @@ def predict():
     image_path = "/home/m7364j2910/ocr-api/images/"+imagefile.filename
     # image = imagefile.filename
     imagefile.save(image_path)
+    
+    #upload image into firebase storage
+    bucket = storage.bucket()
+    blob = bucket.blob("KTP/{}".format(imagefile.filename))
+    blob.upload_from_filename(image_path)
 
     img = cv2.imread(image_path, 0)
     ret, img = cv2.threshold(img, 150, 255, cv2.THRESH_BINARY_INV)
@@ -84,13 +89,13 @@ def predict():
 
         for i in range (len(wrong_name)) :
             if wrong_name[i] in name:
-            new_name = name.strip(wrong_name[i])
+              new_name = name.strip(wrong_name[i])
         new_name = new_name.strip("\n")
         new_name = new_name.title()
 
         for i in range (len(wrong_name)) :
             if wrong_name[i] in jenis_kelamin:
-            new_jenis_kelamin = jenis_kelamin.strip(wrong_name[i])
+              new_jenis_kelamin = jenis_kelamin.strip(wrong_name[i])
         new_jenis_kelamin = new_jenis_kelamin.strip("\n")
 
         if new_jenis_kelamin == "PEREMPUAN":
