@@ -8,7 +8,11 @@ import matplotlib.pyplot as plt
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
-import os
+import smtplib
+import ssl
+import math
+import random
+from email.message import EmailMessage
 
 app = Flask(__name__)
 
@@ -25,11 +29,11 @@ firebase = firebase_admin.initialize_app(cred,
 
 root = db.reference()
 
-@app.route("/helloWorld")
+@app.route("/ml-api/helloWorld")
 def home():
     return "hello world"
 
-@app.route("/getOcr", methods=['POST'])
+@app.route("/ml-api/getOcr", methods=['POST'])
 def predict():
     imagefile = request.files['imagefile']
     uid = request.form.get('uid')
@@ -82,6 +86,7 @@ def predict():
             if wrong_name[i] in name:
             new_name = name.strip(wrong_name[i])
         new_name = new_name.strip("\n")
+        new_name = new_name.title()
 
         for i in range (len(wrong_name)) :
             if wrong_name[i] in jenis_kelamin:
@@ -116,6 +121,60 @@ def predict():
         db.reference("users_data").child(uid).update(new_users_data)
 
         return jsonify(response_json)
+      
+@app.route('/ml-api/sendOtp', methods=['POST'])
+def sendEmail():
+    user_email = request.form.get("email")
+    for string in user_email:
+        if "." == string:
+            db_email = user_email.replace(string, "")
+
+    digits = "0123456789"
+    otp = ""
+
+    for i in range(6):
+        otp += digits[math.floor(random.random() * 10)]
+
+    subject = "REDMINE"
+    call_otp = otp
+    body = "Hello Redminers, \n\nAvoid scams! Do not give the OTP code to anyone. Redmine OTP code: {}.".format(
+        call_otp)
+    email_sender = "nararyanirankara@gmail.com"
+    email_receiver = user_email
+    password = "ognbgktfhkfcunra"
+
+    message = EmailMessage()
+    message["From"] = email_sender
+    message["To"] = email_receiver
+    message["Subject"] = subject
+
+    html = f"""
+    <html>
+      <body>
+        <h1>{subject}</h1>
+        <p>{body}</p>
+      </body>
+    </html>
+    """
+    message.add_alternative(html, subtype="html")
+
+    context = ssl.create_default_context()
+
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+        server.login(email_sender, password)
+        server.sendmail(email_sender, email_receiver, message.as_string())
+
+        data = {"otpCode": call_otp}
+        db.reference("otp_codes").child(db_email).set(data)
+
+    email_response = {
+        "otpCode": call_otp,
+        "email": user_email,
+        "databaseEmail": db_email
+
+    }
+
+    return jsonify(email_response)
 
     # elif len(roi_img) == 1:
     #     text = pytesseract.image_to_string(roi_img[0], lang='eng', config='--psm 7')
