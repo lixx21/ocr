@@ -5,3 +5,4 @@ opencv-python
 matplotlib
 pytesseract
 firebase-admin
+secure-smtlib
